@@ -30,6 +30,7 @@ stages:
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.tfstate'
   - job: terraform_validate
+    dependsOn: terraform_init
     steps:
     - task: TerraformTask@5
       inputs:
