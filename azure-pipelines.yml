@@ -1,6 +1,7 @@
 name: Terraform Pipeline
 
-trigger: none
+trigger: 
+  - main
 
 pool: Ankitagentpool
 
