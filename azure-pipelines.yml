@@ -18,7 +18,6 @@ stages:
   jobs:
   - job: terraform_init
     steps:
-      - 
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
@@ -31,7 +30,6 @@ stages:
         backendAzureRmKey: 'test.tfstate'
   - job: terraform_validate
     steps:
-      - 
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
