@@ -1,0 +1,42 @@
+name: Terraform Pipeline
+
+trigger: none
+
+pool: Ankitagentpool
+
+stages:
+- stage: terraforminstall
+  displayName: Terraform module install
+  jobs:
+  - job: terraform_initiate
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+- stage: terraforminit_validate
+  jobs:
+  - job: terraform_init
+    steps:
+      - 
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'Ankit-svc'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/Test/'
+        backendAzureRmResourceGroupName: 'Test'
+        backendAzureRmStorageAccountName: 'testgfqw23645'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'test.tfstate'
+  - job: terraform_validate
+    steps:
+      - 
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/Test/'
+
+    
+
