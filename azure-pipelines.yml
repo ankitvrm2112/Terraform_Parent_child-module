@@ -29,9 +29,6 @@ stages:
         backendAzureRmStorageAccountName: 'testgfqw23645'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.tfstate'
-  - job: terraform_validate
-    dependsOn: terraform_init
-    steps:
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
