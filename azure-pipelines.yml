@@ -1,7 +1,7 @@
 name: Terraform Pipeline
 
 trigger: 
-  - main
+  - none
 
 pool: Ankitagentpool
 
